@@ -30,7 +30,7 @@ def setup_process():
     global jobs
     global process
 
-    smos_reader = Smudp2_620_Ts(path='/home/ffascett/shares/radar/Datapool_processed/SMOS/SMUDP2_620_2010_2011_v1/') # gridfn='/home/ffascett/Desktop/provaSMOS/grid/out/SMOS_grid_v20.nc'
+    smos_reader = Smudp2_620_Ts(path='/home/ffascett/shares/radar/Datapool_processed/SMOS/SMUDP2_620_2010_2011_v1/')
 
     path_data_era = os.path.join(root.r, 'Datapool_processed', 'ECMWF_reanalysis', 'ERA_Interim_Land', 'datasets', 'netcdf')
     path_grid_era_file = os.path.join(root.r, 'Datapool_processed', 'ECMWF_reanalysis', 'ERA_Interim_Land', 'ancillary', 'grid', 'eraArray_grid_subset.nc')
