@@ -1,0 +1,73 @@
+name: pytesmo_env
+dependencies:
+- alabaster=0.7.7=py27_0
+- babel=2.2.0=py27_0
+- basemap=1.0.7=np110py27_0
+- cairo=1.12.18=6
+- curl=7.45.0=0
+- cycler=0.10.0=py27_0
+- cython=0.23.4=py27_0
+- docutils=0.12=py27_0
+- fontconfig=2.11.1=5
+- freetype=2.5.5=0
+- geos=3.3.3=0
+- h5py=2.5.0=np110py27_4
+- hdf5=1.8.15.1=2
+- jinja2=2.8=py27_0
+- libgfortran=3.0=0
+- libnetcdf=4.3.3.1=3
+- libpng=1.6.17=0
+- libxml2=2.9.2=0
+- markupsafe=0.23=py27_0
+- matplotlib=1.5.1=np110py27_0
+- mkl=11.3.1=0
+- netcdf4=1.2.2=np110py27_0
+- numpy=1.10.4=py27_1
+- openssl=1.0.2g=0
+- pandas=0.17.1=np110py27_0
+- pbr=1.8.1=py27_0
+- pip=8.1.1=py27_1
+- pixman=0.32.6=0
+- pycairo=1.10.0=py27_0
+- pygments=2.1.1=py27_0
+- pyparsing=2.0.3=py27_0
+- pyqt=4.11.4=py27_1
+- pyscaffold=2.5.5=py27_0
+- python=2.7.11=0
+- python-dateutil=2.4.2=py27_0
+- pytz=2015.7=py27_0
+- qt=4.8.7=1
+- readline=6.2=2
+- scipy=0.17.0=np110py27_2
+- setuptools=20.7.0=py27_0
+- sip=4.16.9=py27_0
+- six=1.10.0=py27_0
+- snowballstemmer=1.2.1=py27_0
+- sphinx=1.3.5=py27_0
+- sphinx_rtd_theme=0.1.9=py27_0
+- sqlite=3.9.2=0
+- tk=8.5.18=0
+- wheel=0.29.0=py27_0
+- zlib=1.2.8=0
+- pip:
+  - autopep8==1.2.2
+  - configobj==5.0.2
+  - imgtsimg (/home/ffascett/myGit/imgtsimg)==0.1
+  - patsy==0.4.1
+  - pep8==1.7.0
+  - py==1.4.31
+  - pygenio (/home/ffascett/myGit/pygenio)==1.1.3.post0.dev8+g58c918c
+  - pygeobase==0.3.9
+  - pygeogrids==0.1.9
+  - pygrids (/home/ffascett/myGit/pygrids)==0.2.6.post0.dev2+g49b5dd9
+  - pykdtree==1.1.1
+  - pynetcf (/home/ffascett/myGit/pynetCF)==0.1.6.post0.dev22+g3671326
+  - pyproj==1.9.5.1
+  - pyresample==1.1.6
+  - pytesmo (/home/ffascett/myGit/pytesmo)==0.5.1.post0.dev6+gaec32ab
+  - pytest==2.9.1
+  - rs-data-updates (/home/ffascett/myGit/rs-data-updates)==0.0.post0.dev77+777651e
+  - rsdata (/home/ffascett/myGit/rs-data-readers)==0.2.3.post0.dev6
+  - sphinx-rtd-theme==0.1.9
+  - spyder==2.3.8
+  - statsmodels==0.6.1
