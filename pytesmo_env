@@ -52,22 +52,22 @@ dependencies:
 - pip:
   - autopep8==1.2.2
   - configobj==5.0.2
-  - imgtsimg (/home/ffascett/myGit/imgtsimg)==0.1
+  - imgtsimg 2017dd342a0964a110a3c77c04b453c9057759bc
   - patsy==0.4.1
   - pep8==1.7.0
   - py==1.4.31
-  - pygenio (/home/ffascett/myGit/pygenio)==1.1.3.post0.dev8+g58c918c
+  - pygenio 007c01271c486f0b3b2bf1fb19d81c1c4c962f1b
   - pygeobase==0.3.9
   - pygeogrids==0.1.9
-  - pygrids (/home/ffascett/myGit/pygrids)==0.2.6.post0.dev2+g49b5dd9
+  - pygrids e5b5e4c728d853e33481c0fce6bdc8f65a686c9f
   - pykdtree==1.1.1
   - pynetcf (/home/ffascett/myGit/pynetCF)==0.1.6.post0.dev22+g3671326
   - pyproj==1.9.5.1
   - pyresample==1.1.6
-  - pytesmo (/home/ffascett/myGit/pytesmo)==0.5.1.post0.dev6+gaec32ab
+  - pytesmo 393a432d09d5c89a0a6bce5abd6c623f2a3456c3
   - pytest==2.9.1
-  - rs-data-updates (/home/ffascett/myGit/rs-data-updates)==0.0.post0.dev77+777651e
-  - rsdata (/home/ffascett/myGit/rs-data-readers)==0.2.3.post0.dev6
+  - rs-data-updates d60e935a2e95ae79fa814184480d22158483de56
+  - rsdata 5d5a3ff0d9ab03d02dc4a95bab5befb08a51673c
   - sphinx-rtd-theme==0.1.9
   - spyder==2.3.8
   - statsmodels==0.6.1
