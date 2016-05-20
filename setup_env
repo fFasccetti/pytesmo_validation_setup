@@ -1,0 +1,14 @@
+# Set up developer environment for Pytesmo validation of Fabio
+conda env create -f pytesmo_env.yml
+source activate pytesmo_env
+pip install -e git+git@github.com:TUW-GEO/pygeobase.git@eaf484af85b81829ca3159e36f882d8a30102a37#egg=pygeobase
+pip install -e git+git@github.com:TUW-GEO/pynetCF.git@7be8b862e9db4fe6473e25efab7c58d6799124ff#egg=pynetcf
+pip install -e git+git@github.com:TUW-GEO/pygeogrids.git@1bbae05c8544e2464df051fe2262f94400b1a2c9#egg=pygeogrids
+pip install -e git+git@github.com:fFasccetti/pytesmo.git@393a432d09d5c89a0a6bce5abd6c623f2a3456c3#egg=pytesmo
+pip install -e git+git@git.geo.tuwien.ac.at:rs-developers/pygenio.git@007c01271c486f0b3b2bf1fb19d81c1c4c962f1b#egg=pygenio
+pip install -e git+git@git.geo.tuwien.ac.at:rs-developers/rs_math.git@a5d546cb1c1663a08850df5ec5f32995b5ca961a#egg=rs_math
+pip install -e git+git@git.geo.tuwien.ac.at:rs-developers/pygrids.git@e5b5e4c728d853e33481c0fce6bdc8f65a686c9f#egg=pygrids
+pip install -e git+git@git.geo.tuwien.ac.at:rs-developers/rs-data-readers.git@5d5a3ff0d9ab03d02dc4a95bab5befb08a51673c#egg=rsdata
+pip install -e git+git@git.geo.tuwien.ac.at:rs-developers/warp_data.git@6e1a85b4a724952c4cf0e641629818061d30f5e9#egg=warp_data
+pip install -e git+git@git.geo.tuwien.ac.at:rs-developers/rs_resample.git@bb3dd111bd42da888ed48146f866d82209048ca5#egg=rs_resample
+python setup.py develop
