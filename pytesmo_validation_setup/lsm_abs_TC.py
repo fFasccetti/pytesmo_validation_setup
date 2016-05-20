@@ -31,13 +31,14 @@ def setup_process():
     global jobs
     global process
 
-    smos_reader = Smudp2_620_Ts(path='/home/ffascett/shares/radar/Datapool_processed/SMOS/SMUDP2_620_2010_2011_v1/')
+    #smos_reader = Smudp2_620_Ts(path='/home/ffascett/shares/radar/Datapool_processed/SMOS/SMUDP2_620_2010_2011_v1/')
+    smos_reader = Smudp2_620_Ts(path=os.path.join(root.r, 'Datapool_processed', 'SMOS', 'SMUDP2_620_2010_2011_v1'))
 
     path_data_era = os.path.join(root.r, 'Datapool_processed', 'ECMWF_reanalysis', 'ERA_Interim_Land', 'datasets', 'netcdf')
     path_grid_era_file = os.path.join(root.r, 'Datapool_processed', 'ECMWF_reanalysis', 'ERA_Interim_Land', 'ancillary', 'grid', 'eraArray_grid_subset.nc')
     era_reader = ERALAND_g2ze(path=path_data_era, parameter='sm_era', grid_info_path=path_grid_era_file)
 
-    ers_folder = os.path.join(root.r, 'Datapool_processed', 'WARP', 'WARP5.6', 'IRE21_WARP56_P1', 'R1', '080_ssm','netcdf_new')
+    ers_folder = os.path.join(root.r, 'Datapool_processed', 'WARP', 'WARP5.6', 'IRE21_WARP56_P1', 'R1', '080_ssm','netcdf')
     #ers_grid_folder = os.path.join('/home','ffascett','shares','radar','Datapool_processed','WARP','ancillary','warp5_grid')
     #grid_ers = ascat_net(ers_folder,ers_grid_folder,grid_info_filename='TUW_WARP5_grid_info_2_1.nc')
     #grid_ers._load_grid_info()
@@ -68,20 +69,5 @@ def setup_process():
     return jobs, process
 
 if __name__ == '__main__':
-
-    from pytesmo.validation_framework.results_manager import netcdf_results_manager
-    import numpy as np
     setup_process()
-
-
-    compact_results = start_process(jobs)
-
-
-
-    print len(compact_results)
-
-    save_path = '/home/ffascett/Desktop/provaTC/controlTime/'
-    netcdf_results_manager(compact_results, save_path)
-
-    print 'finish'
 
