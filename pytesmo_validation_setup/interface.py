@@ -61,11 +61,12 @@ def func(job):
 def create_index_list(n_engines, n_list):
     n_index = np.ceil(np.float64(n_list) / np.float64(n_engines))
     index = np.array_split(np.arange(n_index*n_engines, dtype=np.int32), n_engines)
-    index = np.vstack(index)
-    index = np.ravel(index, order='F')
+    # index = np.vstack(index)
+    # index = np.ravel(index, order='F')
     index = np.ma.masked_greater_equal(index, n_list)
 
-    return index.compressed()
+    # return index.compressed()
+    return index
 
 def p_validation(path_setup=None):
     """
@@ -87,7 +88,7 @@ def p_validation(path_setup=None):
     dv.execute("os.environ['OMP_NUM_THREADS']='1'")
     dv.execute("os.environ['MKL_DYNAMIC']='FALSE'")
 
-    lview = c.load_balanced_view()
+    # lview = c.load_balanced_view()
 
     # Push  Validation setup to engines
     if path_setup is not None:
@@ -104,39 +105,32 @@ def p_validation(path_setup=None):
     results_path = '/data-write/RADAR/Validation_FFascetti/'
 
     if (jobs is not None) and (results_path is not None):
-            # re-arange job list to avoid cell reading conflicts
-            n_jobs = len(jobs)
-            index_list_jobs = create_index_list(n_engines, n_jobs)
-            jobs = jobs[index_list_jobs]
+        # re-arange job list to avoid cell reading conflicts
+        n_jobs = len(jobs)
+        job_index_list = create_index_list(n_engines, n_jobs)
+        n_runs = job_index_list.shape[1]
+        
+        # start validation
+        for runi in np.arange(n_runs):
+            cur_jobs = jobs[job_index_list[:,runi].compressed()]
+            amr = dv.map(func, cur_jobs)
+            while amr.ready() is False:
+                time.sleep(1)
+            for i, result in enumerate(amr):
+                netcdf_results_manager(result, results_path)
 
-            amr = lview.map(func, jobs)
-            pending = set(amr.msg_ids)
-            n_jobs = len(amr.msg_ids)
-            while n_jobs > 0:
-                submitted = pending.difference(c.outstanding)
-                if len(submitted) == 0:
-                    time.sleep(1)
-                    prg = amr.progress
-                    continue
+            print("Start Run {:}".format(runi))
 
-                for msg_id in submitted:
-                    if c.metadata[msg_id]['completed']:
-                        ar = c.get_result(msg_id)
-                        #if ar.successful():
-                        if ar.ready():
-                            result = ar.get()[0]
-                            netcdf_results_manager(result, results_path)
-                            pending = pending.difference([msg_id])
-                            n_jobs = len(pending)
-                            print('#{:} pending jobs'.format(len(pending)))
-            print('{:} jobs not completed.'.format(len(pending)))
+            dv.results.clear()
+            c.results.clear()
+            c.purge_everything()
 
     c.purge_everything()
     dv.clear()
     c.close()
 
 if __name__ == '__main__':
-    setup_path = '/home/cre/myGit/pytesmo_validation_setup/pytesmo_validation_setup/lsm_abs_TC.py'
+    setup_path = '/home/cre/myGit/pytesmo_validation_setup/pytesmo_validation_setup/lsm_abs_quad.py'
     #s_validation(path_setup=setup_path)
     p_validation(path_setup=setup_path)
 
