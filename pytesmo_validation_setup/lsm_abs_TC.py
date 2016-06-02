@@ -38,7 +38,10 @@ def setup_process():
     path_grid_era_file = os.path.join(root.r, 'Datapool_processed', 'ECMWF_reanalysis', 'ERA_Interim_Land', 'ancillary', 'grid', 'eraArray_grid_subset.nc')
     era_reader = ERALAND_g2ze(path=path_data_era, parameter='sm_era', grid_info_path=path_grid_era_file)
 
-    ers_folder = os.path.join(root.r, 'Datapool_processed', 'WARP', 'WARP5.6', 'IRE21_WARP56_P1', 'R1', '080_ssm','netcdf')
+    # ers_folder = os.path.join(root.r, 'Datapool_processed', 'WARP', 'WARP5.6',
+    #                           'IRE21_WARP56_P1', 'R1', '080_ssm','netcdf')
+    ers_folder = os.path.join('/data-write', 'RADAR', 'WARP',
+                              'IOE21_WARP56_P1', 'R1', '080_ssm','netcdf')
     #ers_grid_folder = os.path.join('/home','ffascett','shares','radar','Datapool_processed','WARP','ancillary','warp5_grid')
     #grid_ers = ascat_net(ers_folder,ers_grid_folder,grid_info_filename='TUW_WARP5_grid_info_2_1.nc')
     #grid_ers._load_grid_info()
