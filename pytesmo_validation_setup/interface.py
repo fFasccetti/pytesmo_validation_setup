@@ -130,7 +130,13 @@ def p_validation(path_setup=None):
     c.close()
 
 if __name__ == '__main__':
-    setup_path = '/home/cre/myGit/pytesmo_validation_setup/pytesmo_validation_setup/lsm_abs_quad.py'
+    root_path = '/home/cre/myGit/pytesmo_validation_setup/pytesmo_validation_setup/'
+    setup_path = root_path + 'lsm_abs_quad.py'
+    # setup_path = root_path + 'lsm_abs_TC.py'
+    # setup_path = root_path + 'lsm_ano_TC.py'
+    # setup_path = root_path + 'lsm_ano_quad.py'
+    # setup_path = root_path + 'lsm_abs_ec.py'
+    setup_path = root_path + 'lsm_ano_ec.py'
     #s_validation(path_setup=setup_path)
     p_validation(path_setup=setup_path)
 
